@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Photo Gallery — Villa Harpocrates, Hvar</title>
+  <meta name="description" content="Browse the full photo gallery of Villa Harpocrates — luxury villa on Hvar Island. Pool, bedrooms, terrace, wine cellar, and the beautiful Dalmatian surroundings.">
+  <meta name="theme-color" content="#0a0e1a">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ========== NAVBAR ========== -->
+<nav id="navbar">
+  <a href="index.html" class="nav-logo">Villa Harpocrates</a>
+  <ul class="nav-links">
+    <li><a href="index.html"    class="nav-link">Home</a></li>
+    <li><a href="about.html"    class="nav-link">About</a></li>
+    <li><a href="services.html" class="nav-link">Services</a></li>
+    <li><a href="gallery.html"  class="nav-link active">Gallery</a></li>
+    <li><a href="pricing.html"  class="nav-link">Pricing</a></li>
+    <li><a href="contact.html"  class="nav-link">Contact</a></li>
+  </ul>
+  <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div id="mobile-menu">
+  <a href="index.html"    class="mobile-link">Home</a>
+  <a href="about.html"    class="mobile-link">About</a>
+  <a href="services.html" class="mobile-link">Services</a>
+  <a href="gallery.html"  class="mobile-link active">Gallery</a>
+  <a href="pricing.html"  class="mobile-link">Pricing</a>
+  <a href="contact.html"  class="mobile-link">Contact</a>
+</div>
+
+<!-- ========== PAGE HERO ========== -->
+<div class="page-hero">
+  <div class="page-hero-bg" style="background-image: url('https://images.unsplash.com/photo-1555990538-1e5ac2fbeae7?auto=format&fit=crop&w=1920&q=80');"></div>
+  <div class="page-hero-overlay"></div>
+  <div class="page-hero-content">
+    <span class="section-label">Visual Journey</span>
+    <h1>Photo <em>Gallery</em></h1>
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="index.html">Home</a>
+      <i class="fa-solid fa-chevron-right" style="font-size:0.6rem;"></i>
+      <span>Gallery</span>
+    </nav>
+  </div>
+</div>
+
+<!-- ========== GALLERY SECTION ========== -->
+<section style="background: var(--navy);">
+  <div class="container">
+    <div style="text-align:center; margin-bottom:2rem;" data-aos="fade-up">
+      <span class="section-label" style="display:block; text-align:center;">The Full Collection</span>
+      <h2>Life at <em>Villa Harpocrates</em></h2>
+      <div class="section-divider centered"></div>
+    </div>
+
+    <!-- Category Filters -->
+    <div class="gallery-filters" data-aos="fade-up">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="exterior">Exterior</button>
+      <button class="filter-btn" data-filter="pool">Pool</button>
+      <button class="filter-btn" data-filter="interior">Interior</button>
+      <button class="filter-btn" data-filter="views">Views</button>
+    </div>
+
+    <!-- Gallery Grid -->
+    <div class="gallery-grid" data-aos="fade-up">
+
+      <!-- 1: Large feature — Pool (spans 2 rows) -->
+      <div class="gallery-item"
+           data-src="https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?auto=format&fit=crop&w=1400&q=85"
+           data-alt="Villa Harpocrates heated pool"
+           data-category="pool">
+        <img
+          src="https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?auto=format&fit=crop&w=900&q=80"
+          alt="Heated outdoor pool with sun loungers"
+          loading="lazy"
+        >
+        <div class="gallery-overlay"><i class="fa-regular fa-magnifying-glass-plus"></i></div>
+      </div>
+
+      <!-- 2: Exterior -->
+      <div class="gallery-item"
+           data-src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=1200&q=85"
+           data-alt="Villa exterior stone facade"
+           data-category="exterior">
+        <img
+          src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=700&q=80"
+          alt="Villa stone exterior facade"
+          loading="lazy"
+        >
+        <div class="gallery-overlay"><i class="fa-regular fa-magnifying-glass-plus"></i></div>
+      </div>
+
+      <!-- 3: Aerial coast view -->
+      <div class="gallery-item"
+           data-src="https://images.unsplash.com/photo-1555990538-1e5ac2fbeae7?auto=format&fit=crop&w=1400&q=85"
+           data-alt="Aerial view of Hvar island coast"
+           data-category="views">
+        <img
+          src="https://images.unsplash.com/photo-1555990538-1e5ac2fbeae7?auto=format&fit=crop&w=700&q=80"
+          alt="Aerial view of Hvar island coastline"
+          loading="lazy"
+        >
+        <div class="gallery-overlay"><i class="fa-regular fa-magnifying-glass-plus"></i></div>
+      </div>
+
+      <!-- 4: Luxury bedroom -->
+      <div class="gallery-item"
+           data-src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=1200&q=85"
+           data-alt="Luxury master bedroom"
+           data-category="interior">
+        <img
+          src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=700&q=80"
+          alt="Luxury master bedroom"
+          loading="lazy"
+        >
+        <div class="gallery-overlay"><i class="fa-regular fa-magnifying-glass-plus"></i></div>
+      </div>
+
+      <!-- 5: Wine and dining -->
+      <div class="gallery-item"
+           data-src="https://images.unsplash.com/photo-1510627489930-0c1b0bfb6785?auto=format&fit=crop&w=1200&q=85"
+           data-alt="Wine cellar and dining area"
+           data-category="interior">
+        <img
+          src="https://images.unsplash.com/photo-1510627489930-0c1b0bfb6785?auto=format&fit=crop&w=700&q=80"
+          alt="Wine cellar and dining"
+          loading="lazy"
+        >
+        <div class="gallery-overlay"><i class="fa-regular fa-magnifying-glass-plus"></i></div>
+      </div>
+
+      <!-- 6: BBQ Terrace -->
+      <div class="gallery-item"
+           data-src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=85"
+           data-alt="Outdoor BBQ terrace"
+           data-category="exterior">
+        <img
+          src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=700&q=80"
+          alt="Outdoor BBQ terrace and garden"
+          loading="lazy"
+        >
+        <div class="gallery-overlay"><i class="fa-regular fa-magnifying-glass-plus"></i></div>
+      </div>
+
+      <!-- 7: Hvar lavender/landscape -->
+      <div class="gallery-item"
+           data-src="https://images.unsplash.com/photo-1601581875039-e899893d520c?auto=format&fit=crop&w=1200&q=85"
+           data-alt="Hvar island landscape"
+           data-category="views">
+        <img
+          src="https://images.unsplash.com/photo-1601581875039-e899893d520c?auto=format&fit=crop&w=700&q=80"
+          alt="Hvar island landscape and village"
+          loading="lazy"
+        >
+        <div class="gallery-overlay"><i class="fa-regular fa-magnifying-glass-plus"></i></div>
+      </div>
+
+      <!-- 8: Mountain bikes -->
+      <div class="gallery-item"
+           data-src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=1200&q=85"
+           data-alt="Mountain bikes for guests"
+           data-category="exterior">
+        <img
+          src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=700&q=80"
+          alt="Mountain bikes available for all guests"
+          loading="lazy"
+        >
+        <div class="gallery-overlay"><i class="fa-regular fa-magnifying-glass-plus"></i></div>
+      </div>
+
+      <!-- 9: Pool at dusk -->
+      <div class="gallery-item"
+           data-src="https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=1400&q=85"
+           data-alt="Pool at dusk luxury villa"
+           data-category="pool">
+        <img
+          src="https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=700&q=80"
+          alt="Luxury villa pool at dusk"
+          loading="lazy"
+        >
+        <div class="gallery-overlay"><i class="fa-regular fa-magnifying-glass-plus"></i></div>
+      </div>
+
+    </div><!-- /gallery-grid -->
+
+    <div style="text-align:center; margin-top:3rem; color:var(--text-muted); font-size:0.8rem;" data-aos="fade-up">
+      Click any image to view full screen &nbsp;&middot;&nbsp; Use arrow keys or swipe to navigate
+    </div>
+  </div>
+</section>
+
+<!-- ========== LIGHTBOX ========== -->
+<div id="lightbox">
+  <button id="lightbox-close" aria-label="Close">&times;</button>
+  <button id="lightbox-prev" aria-label="Previous image"><i class="fa-solid fa-chevron-left"></i></button>
+  <img id="lightbox-img" src="" alt="">
+  <button id="lightbox-next" aria-label="Next image"><i class="fa-solid fa-chevron-right"></i></button>
+  <div id="lightbox-counter"></div>
+</div>
+
+<!-- ========== CTA ========== -->
+<div class="cta-banner">
+  <div class="container">
+    <span class="section-label" style="display:block; text-align:center; margin-bottom:1rem;">Inspired?</span>
+    <h2>Reserve Your <em>Dates</em></h2>
+    <p>Check availability for your preferred dates and secure your private Hvar retreat.</p>
+    <a href="pricing.html" class="btn-primary">View Rates &amp; Book</a>
+    <a href="contact.html" class="btn-secondary" style="margin-left:1rem;">Send Enquiry</a>
+  </div>
+</div>
+
+<!-- ========== FOOTER ========== -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <span class="footer-logo">Villa Harpocrates</span>
+        <p class="footer-tagline">An exclusive retreat on the sun-drenched shores of Hvar Island, where Dalmatian luxury meets timeless privacy.</p>
+        <div class="social-links">
+          <a href="https://www.instagram.com/luxuryvillaharpocrates/" target="_blank" rel="noopener" class="social-link" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://facebook.com" target="_blank" rel="noopener" class="social-link" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+        </div>
+      </div>
+      <div>
+        <p class="footer-col-title">Explore</p>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About the Villa</a></li>
+          <li><a href="services.html">Services &amp; Amenities</a></li>
+          <li><a href="gallery.html">Photo Gallery</a></li>
+          <li><a href="pricing.html">Rates &amp; Booking</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-col-title">Contact</p>
+        <div class="footer-contact-item">
+          <i class="fa-solid fa-location-dot"></i>
+          <span>Put Gospojice 41<br>Vrboska, Hvar 21463<br>Croatia</span>
+        </div>
+        <div class="footer-contact-item">
+          <i class="fa-solid fa-phone"></i>
+          <a href="tel:+385098641535">098 641 535</a>
+        </div>
+        <div class="footer-contact-item">
+          <i class="fa-solid fa-envelope"></i>
+          <a href="mailto:villa.harpocrates@gmail.com">villa.harpocrates@gmail.com</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Villa Harpocrates · LuxuryVillaHarpocrates</span>
+      <span>Hvar Island, Croatia</span>
+    </div>
+  </div>
+</footer>
+
+<button id="back-to-top" aria-label="Back to top"><i class="fa-solid fa-chevron-up"></i></button>
+<a href="tel:+385098641535" id="phone-float" aria-label="Call us"><i class="fa-solid fa-phone"></i></a>
+
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
