@@ -76,14 +76,44 @@
 <!-- ========== HERO ========== -->
 <section id="hero">
   <div class="hero-slider">
-    <div class="hero-slide active" style="background-image: url('https://www.luxurycroatianvillas.com/media/com_rentvillas/villas/145/gallery/Luxury_Villa_Harpocrates_Hvar_1.jpg');"></div>
-    <div class="hero-slide" style="background-image: url('https://www.luxurycroatianvillas.com/media/com_rentvillas/villas/145/gallery/Luxury_Villa_Harpocrates_Hvar_10.jpg');"></div>
-    <div class="hero-slide" style="background-image: url('https://www.luxurycroatianvillas.com/media/com_rentvillas/villas/145/gallery/Luxury_Villa_Harpocrates_Hvar_2.jpg');"></div>
-    <div class="hero-slide" style="background-image: url('https://www.luxurycroatianvillas.com/media/com_rentvillas/villas/145/gallery/Luxury_Villa_Harpocrates_Hvar_20.jpg');"></div>
-    <div class="hero-slide" style="background-image: url('https://www.luxurycroatianvillas.com/media/com_rentvillas/villas/145/gallery/Luxury_Villa_Harpocrates_Hvar_30.jpg');"></div>
-    <div class="hero-slide" style="background-image: url('https://www.luxurycroatianvillas.com/media/com_rentvillas/villas/145/gallery/Luxury_Villa_Harpocrates_Hvar_4.jpg');"></div>
+
+    <div class="hero-slide active">
+      <img src="https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MjYzMDk5Nzk%3D/original/ae831871-092b-4b9e-8018-435ec20010bc.jpeg" alt="Villa Harpocrates" loading="eager">
+    </div>
+
+    <div class="hero-slide">
+      <img src="https://www.luxurycroatianvillas.com/media/com_rentvillas/villas/145/gallery/Luxury_Villa_Harpocrates_Hvar_10.jpg" alt="Villa Harpocrates heated pool" loading="lazy">
+    </div>
+
+    <div class="hero-slide">
+      <img src="https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MjYzMDk5Nzk%3D/original/57cb1115-4170-4c8a-b8f1-5b6e8b3a07c5.jpeg" alt="Villa Harpocrates interior" loading="lazy">
+    </div>
+
+    <div class="hero-slide">
+      <img src="https://www.luxurycroatianvillas.com/media/com_rentvillas/villas/145/gallery/Luxury_Villa_Harpocrates_Hvar_2.jpg" alt="Villa Harpocrates garden" loading="lazy">
+    </div>
+
+    <div class="hero-slide">
+      <img src="https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MjYzMDk5Nzk%3D/original/9e3650a4-5be2-4562-a684-e005d96feb79.jpeg" alt="Villa Harpocrates outdoor dining" loading="lazy">
+    </div>
+
+    <div class="hero-slide">
+      <img src="https://www.luxurycroatianvillas.com/media/com_rentvillas/villas/145/gallery/Luxury_Villa_Harpocrates_Hvar_4.jpg" alt="Villa Harpocrates exterior" loading="lazy">
+    </div>
+
+    <div class="hero-slide">
+      <img src="https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MjYzMDk5Nzk%3D/original/54fff38a-beaa-4db8-a58f-650a785dceb9.jpeg" alt="Villa Harpocrates bedroom" loading="lazy">
+    </div>
+
+    <div class="hero-slide">
+      <img src="https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6MjYzMDk5Nzk%3D/original/87aabc73-79cc-4b76-b29b-a9062d2fec37.jpeg" alt="Villa Harpocrates view" loading="lazy">
+    </div>
+
   </div>
+
   <div class="hero-overlay"></div>
+  <div class="hero-progress" id="hero-progress"></div>
+
   <div class="hero-content">
     <p class="hero-pretitle">Hvar Island &middot; Croatia</p>
     <h1 class="hero-title">Villa <em>Harpocrates</em></h1>
@@ -99,16 +129,13 @@
       <a href="gallery.html" class="btn-secondary">View Gallery</a>
     </div>
   </div>
+
   <button class="hero-arrow hero-arrow-prev" id="hero-prev" aria-label="Previous slide"><i class="fa-solid fa-chevron-left"></i></button>
   <button class="hero-arrow hero-arrow-next" id="hero-next" aria-label="Next slide"><i class="fa-solid fa-chevron-right"></i></button>
-  <div class="hero-slide-dots">
-    <button class="hero-dot active" aria-label="Slide 1"></button>
-    <button class="hero-dot" aria-label="Slide 2"></button>
-    <button class="hero-dot" aria-label="Slide 3"></button>
-    <button class="hero-dot" aria-label="Slide 4"></button>
-    <button class="hero-dot" aria-label="Slide 5"></button>
-    <button class="hero-dot" aria-label="Slide 6"></button>
-  </div>
+
+  <div class="hero-slide-dots" id="hero-dots"></div>
+  <div class="hero-counter" id="hero-counter"></div>
+
   <a href="#stats" class="hero-scroll" aria-label="Scroll down">
     <span>Discover</span>
     <i class="fa-solid fa-chevron-down"></i>

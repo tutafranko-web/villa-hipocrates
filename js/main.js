@@ -91,54 +91,121 @@ if (mobileBtn && mobileMenu) {
   });
 })();
 
-// ========== Hero Slideshow ==========
-document.addEventListener('DOMContentLoaded', () => {
-  const slides = document.querySelectorAll('.hero-slide');
-  const dots   = document.querySelectorAll('.hero-dot');
-  if (slides.length <= 1) return;
+// ========== Hero Cinematic Slideshow ==========
+(function initHeroSlider() {
+  const INTERVAL = 5500;
 
-  let current = 0;
-  let autoplay;
+  function setup() {
+    const heroEl   = document.getElementById('hero');
+    if (!heroEl) return;
 
-  function goTo(index) {
-    slides[current].classList.remove('active');
-    if (dots[current]) dots[current].classList.remove('active');
-    current = (index + slides.length) % slides.length;
-    slides[current].classList.add('active');
-    if (dots[current]) dots[current].classList.add('active');
-  }
+    const slides   = heroEl.querySelectorAll('.hero-slide');
+    const dotsWrap = document.getElementById('hero-dots');
+    const counter  = document.getElementById('hero-counter');
+    const progress = document.getElementById('hero-progress');
+    const prevBtn  = document.getElementById('hero-prev');
+    const nextBtn  = document.getElementById('hero-next');
+    const total    = slides.length;
 
-  function startAutoplay() {
-    autoplay = setInterval(() => goTo(current + 1), 5500);
-  }
+    if (total < 2) return;
 
-  function resetAutoplay() {
-    clearInterval(autoplay);
-    startAutoplay();
-  }
+    let current = 0;
+    let timer   = null;
 
-  startAutoplay();
+    // Build dots dynamically
+    if (dotsWrap) {
+      dotsWrap.innerHTML = '';
+      slides.forEach((_, i) => {
+        const d = document.createElement('button');
+        d.className = 'hero-dot' + (i === 0 ? ' active' : '');
+        d.setAttribute('aria-label', 'Slide ' + (i + 1));
+        d.addEventListener('click', () => goTo(i, true));
+        dotsWrap.appendChild(d);
+      });
+    }
 
-  dots.forEach((dot, i) => {
-    dot.addEventListener('click', () => { goTo(i); resetAutoplay(); });
-  });
+    function getDots() {
+      return dotsWrap ? dotsWrap.querySelectorAll('.hero-dot') : [];
+    }
 
-  const prevBtn = document.getElementById('hero-prev');
-  const nextBtn = document.getElementById('hero-next');
-  if (prevBtn) prevBtn.addEventListener('click', () => { goTo(current - 1); resetAutoplay(); });
-  if (nextBtn) nextBtn.addEventListener('click', () => { goTo(current + 1); resetAutoplay(); });
+    function updateCounter() {
+      if (counter) {
+        counter.innerHTML = '<span>' + (current + 1) + '</span> / ' + total;
+      }
+    }
 
-  // Touch swipe
-  const heroEl = document.getElementById('hero');
-  if (heroEl) {
+    function startProgress() {
+      if (!progress) return;
+      progress.classList.remove('running');
+      progress.style.width = '0%';
+      // Force reflow to restart transition
+      void progress.offsetWidth;
+      progress.classList.add('running');
+    }
+
+    function goTo(index, userAction) {
+      if (index === current) return;
+
+      // Remove active from current
+      slides[current].classList.remove('active');
+      const dots = getDots();
+      if (dots[current]) dots[current].classList.remove('active');
+
+      current = ((index % total) + total) % total;
+
+      // Activate new slide
+      slides[current].classList.add('active');
+      if (dots[current]) dots[current].classList.add('active');
+
+      updateCounter();
+      startProgress();
+
+      if (userAction) {
+        clearInterval(timer);
+        timer = setInterval(advance, INTERVAL);
+      }
+    }
+
+    function advance() {
+      goTo((current + 1) % total, false);
+    }
+
+    // Init
+    slides[0].classList.add('active');
+    updateCounter();
+    startProgress();
+    timer = setInterval(advance, INTERVAL);
+
+    // Arrow buttons
+    if (prevBtn) prevBtn.addEventListener('click', () => goTo((current - 1 + total) % total, true));
+    if (nextBtn) nextBtn.addEventListener('click', () => goTo((current + 1) % total, true));
+
+    // Touch / swipe
     let touchStartX = 0;
-    heroEl.addEventListener('touchstart', e => { touchStartX = e.changedTouches[0].screenX; }, { passive: true });
+    heroEl.addEventListener('touchstart', e => {
+      touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
     heroEl.addEventListener('touchend', e => {
       const delta = e.changedTouches[0].screenX - touchStartX;
-      if (Math.abs(delta) > 50) { delta < 0 ? goTo(current + 1) : goTo(current - 1); resetAutoplay(); }
+      if (Math.abs(delta) > 45) {
+        goTo(delta < 0 ? (current + 1) % total : (current - 1 + total) % total, true);
+      }
     }, { passive: true });
+
+    // Keyboard
+    document.addEventListener('keydown', e => {
+      if (!heroEl.getBoundingClientRect().bottom > 0) return;
+      if (e.key === 'ArrowLeft')  goTo((current - 1 + total) % total, true);
+      if (e.key === 'ArrowRight') goTo((current + 1) % total, true);
+    });
   }
-});
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', setup);
+  } else {
+    setup();
+  }
+})();
 
 // ========== Gallery Lightbox ==========
 let galleryImages = [];
