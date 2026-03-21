@@ -75,7 +75,14 @@
 
 <!-- ========== HERO ========== -->
 <section id="hero">
-  <div class="hero-bg" style="background-image: url('https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=1920&q=85');"></div>
+  <div class="hero-slider">
+    <div class="hero-slide active" style="background-image: url('https://www.luxurycroatianvillas.com/media/com_rentvillas/villas/145/gallery/Luxury_Villa_Harpocrates_Hvar_1.jpg');"></div>
+    <div class="hero-slide" style="background-image: url('https://www.luxurycroatianvillas.com/media/com_rentvillas/villas/145/gallery/Luxury_Villa_Harpocrates_Hvar_10.jpg');"></div>
+    <div class="hero-slide" style="background-image: url('https://www.luxurycroatianvillas.com/media/com_rentvillas/villas/145/gallery/Luxury_Villa_Harpocrates_Hvar_2.jpg');"></div>
+    <div class="hero-slide" style="background-image: url('https://www.luxurycroatianvillas.com/media/com_rentvillas/villas/145/gallery/Luxury_Villa_Harpocrates_Hvar_20.jpg');"></div>
+    <div class="hero-slide" style="background-image: url('https://www.luxurycroatianvillas.com/media/com_rentvillas/villas/145/gallery/Luxury_Villa_Harpocrates_Hvar_30.jpg');"></div>
+    <div class="hero-slide" style="background-image: url('https://www.luxurycroatianvillas.com/media/com_rentvillas/villas/145/gallery/Luxury_Villa_Harpocrates_Hvar_4.jpg');"></div>
+  </div>
   <div class="hero-overlay"></div>
   <div class="hero-content">
     <p class="hero-pretitle">Hvar Island &middot; Croatia</p>
@@ -91,6 +98,16 @@
       <a href="pricing.html" class="btn-primary">Enquire Now</a>
       <a href="gallery.html" class="btn-secondary">View Gallery</a>
     </div>
+  </div>
+  <button class="hero-arrow hero-arrow-prev" id="hero-prev" aria-label="Previous slide"><i class="fa-solid fa-chevron-left"></i></button>
+  <button class="hero-arrow hero-arrow-next" id="hero-next" aria-label="Next slide"><i class="fa-solid fa-chevron-right"></i></button>
+  <div class="hero-slide-dots">
+    <button class="hero-dot active" aria-label="Slide 1"></button>
+    <button class="hero-dot" aria-label="Slide 2"></button>
+    <button class="hero-dot" aria-label="Slide 3"></button>
+    <button class="hero-dot" aria-label="Slide 4"></button>
+    <button class="hero-dot" aria-label="Slide 5"></button>
+    <button class="hero-dot" aria-label="Slide 6"></button>
   </div>
   <a href="#stats" class="hero-scroll" aria-label="Scroll down">
     <span>Discover</span>
@@ -127,7 +144,7 @@
       <div class="about-img-wrap" data-aos="fade-right">
         <img
           class="about-img"
-          src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=1000&q=80"
+          src="https://www.luxurycroatianvillas.com/media/com_rentvillas/villas/145/gallery/Luxury_Villa_Harpocrates_Hvar_3.jpg"
           alt="Villa Harpocrates exterior, Vrboska Hvar"
           loading="lazy"
         >
@@ -224,16 +241,16 @@
     </div>
 
     <div style="display:grid; grid-template-columns: 2fr 1fr; grid-template-rows: 1fr 1fr; gap: 6px; height: 580px;" data-aos="fade-up">
-      <div class="gallery-item" style="grid-row: span 2;" data-src="https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?auto=format&fit=crop&w=1200&q=80" data-alt="Villa pool" data-category="pool">
-        <img src="https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?auto=format&fit=crop&w=800&q=80" alt="Villa Harpocrates heated pool" loading="lazy" style="height:100%; object-fit:cover;">
+      <div class="gallery-item" style="grid-row: span 2;" data-src="https://www.luxurycroatianvillas.com/media/com_rentvillas/villas/145/gallery/Luxury_Villa_Harpocrates_Hvar_10.jpg" data-alt="Villa Harpocrates heated pool" data-category="pool">
+        <img src="https://www.luxurycroatianvillas.com/media/com_rentvillas/villas/145/gallery/Luxury_Villa_Harpocrates_Hvar_10.jpg" alt="Villa Harpocrates heated pool" loading="lazy" style="height:100%; object-fit:cover;">
         <div class="gallery-overlay"><i class="fa-regular fa-magnifying-glass-plus"></i></div>
       </div>
-      <div class="gallery-item" data-src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=1000&q=80" data-alt="Bedroom" data-category="interior">
-        <img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?auto=format&fit=crop&w=600&q=80" alt="Luxury bedroom" loading="lazy" style="height:100%; object-fit:cover;">
+      <div class="gallery-item" data-src="https://www.luxurycroatianvillas.com/media/com_rentvillas/villas/145/gallery/Luxury_Villa_Harpocrates_Hvar_15.jpg" data-alt="Luxury bedroom" data-category="interior">
+        <img src="https://www.luxurycroatianvillas.com/media/com_rentvillas/villas/145/gallery/Luxury_Villa_Harpocrates_Hvar_15.jpg" alt="Luxury bedroom" loading="lazy" style="height:100%; object-fit:cover;">
         <div class="gallery-overlay"><i class="fa-regular fa-magnifying-glass-plus"></i></div>
       </div>
-      <div class="gallery-item" data-src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1000&q=80" data-alt="Outdoor terrace" data-category="exterior">
-        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=600&q=80" alt="Outdoor terrace and BBQ" loading="lazy" style="height:100%; object-fit:cover;">
+      <div class="gallery-item" data-src="https://www.luxurycroatianvillas.com/media/com_rentvillas/villas/145/gallery/Luxury_Villa_Harpocrates_Hvar_13.jpg" data-alt="Outdoor terrace" data-category="exterior">
+        <img src="https://www.luxurycroatianvillas.com/media/com_rentvillas/villas/145/gallery/Luxury_Villa_Harpocrates_Hvar_13.jpg" alt="Outdoor terrace and dining" loading="lazy" style="height:100%; object-fit:cover;">
         <div class="gallery-overlay"><i class="fa-regular fa-magnifying-glass-plus"></i></div>
       </div>
     </div>

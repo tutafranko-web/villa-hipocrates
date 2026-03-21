@@ -91,19 +91,54 @@ if (mobileBtn && mobileMenu) {
   });
 })();
 
-// ========== Hero Parallax (iOS fallback) ==========
-const heroBg = document.querySelector('.hero-bg');
-if (heroBg) {
-  // Only apply JS parallax on touch devices where CSS background-attachment: fixed doesn't work
-  const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-  if (isTouchDevice) {
-    heroBg.style.backgroundAttachment = 'scroll';
-    window.addEventListener('scroll', () => {
-      const scrolled = window.scrollY;
-      heroBg.style.transform = `scale(1.08) translateY(${scrolled * 0.22}px)`;
+// ========== Hero Slideshow ==========
+document.addEventListener('DOMContentLoaded', () => {
+  const slides = document.querySelectorAll('.hero-slide');
+  const dots   = document.querySelectorAll('.hero-dot');
+  if (slides.length <= 1) return;
+
+  let current = 0;
+  let autoplay;
+
+  function goTo(index) {
+    slides[current].classList.remove('active');
+    if (dots[current]) dots[current].classList.remove('active');
+    current = (index + slides.length) % slides.length;
+    slides[current].classList.add('active');
+    if (dots[current]) dots[current].classList.add('active');
+  }
+
+  function startAutoplay() {
+    autoplay = setInterval(() => goTo(current + 1), 5500);
+  }
+
+  function resetAutoplay() {
+    clearInterval(autoplay);
+    startAutoplay();
+  }
+
+  startAutoplay();
+
+  dots.forEach((dot, i) => {
+    dot.addEventListener('click', () => { goTo(i); resetAutoplay(); });
+  });
+
+  const prevBtn = document.getElementById('hero-prev');
+  const nextBtn = document.getElementById('hero-next');
+  if (prevBtn) prevBtn.addEventListener('click', () => { goTo(current - 1); resetAutoplay(); });
+  if (nextBtn) nextBtn.addEventListener('click', () => { goTo(current + 1); resetAutoplay(); });
+
+  // Touch swipe
+  const heroEl = document.getElementById('hero');
+  if (heroEl) {
+    let touchStartX = 0;
+    heroEl.addEventListener('touchstart', e => { touchStartX = e.changedTouches[0].screenX; }, { passive: true });
+    heroEl.addEventListener('touchend', e => {
+      const delta = e.changedTouches[0].screenX - touchStartX;
+      if (Math.abs(delta) > 50) { delta < 0 ? goTo(current + 1) : goTo(current - 1); resetAutoplay(); }
     }, { passive: true });
   }
-}
+});
 
 // ========== Gallery Lightbox ==========
 let galleryImages = [];
