@@ -91,15 +91,32 @@ if (mobileBtn && mobileMenu) {
   });
 })();
 
-// ========== Hero Background Slideshow ==========
+// ========== Hero Sliding Slideshow ==========
 document.addEventListener('DOMContentLoaded', () => {
   const bgs = document.querySelectorAll('#hero .hero-bg');
   if (bgs.length < 2) return;
   let current = 0;
+  let animating = false;
+
   setInterval(() => {
-    bgs[current].classList.remove('active');
+    if (animating) return;
+    animating = true;
+
+    const prev = current;
     current = (current + 1) % bgs.length;
+
+    // Slide current out to the left
+    bgs[prev].classList.remove('active');
+    bgs[prev].classList.add('slide-out');
+
+    // Slide next in from the right
     bgs[current].classList.add('active');
+
+    // Clean up after transition ends
+    setTimeout(() => {
+      bgs[prev].classList.remove('slide-out');
+      animating = false;
+    }, 1500);
   }, 5000);
 });
 
